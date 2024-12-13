@@ -28,45 +28,21 @@ def get_filters():
             break
         print("Invalid input. Please try again.")
 
-    # Get user input for month (as a number)
+    # Get user input for month (as a string)
     while True:
-        try:
-            month = input("Please enter the number of the month to analyze\n" + 
-                          "\t(1 for January, 2 for February, 3 for March, 4 for April, 5 for May, 6 for June) or (0 for 'all')\n: ").strip()
-            month = int(month)
-            if 0 <= month <= 6:
-                break
-            else:
-                print("Invalid input. Please enter a number between 0 and 6.")
-        except ValueError:
-            print("Invalid input. Please enter a valid number.")
+        month = input("Please enter the month to analyze\n"
+                      "\t(January, February, March, April, May, June) or 'all' for no filter: ").strip().lower()
+        if month in ['january', 'february', 'march', 'april', 'may', 'june', 'all']:
+            break
+        print("Invalid input. Please try again.")
 
-    # Convert month number to month name
-    if month == 0:
-        month = 'all'
-    else:
-        months = ['january', 'february', 'march', 'april', 'may', 'june']
-        month = months[month - 1]
-
-    # Get user input for day (as a number)
+    # Get user input for day (as a string)
     while True:
-        try:
-            day = input("Please enter the number of the day to analyze\n" + 
-                        "\t(1 for Monday, 2 for Tuesday, 3 for Wednesday, 4 for Thursday, 5 for Friday, 6 for Saturday, 7 for Sunday) or (0 for 'all')\n: ").strip()
-            day = int(day)
-            if 0 <= day <= 7:
-                break
-            else:
-                print("Invalid input. Please enter a number between 0 and 7.")
-        except ValueError:
-            print("Invalid input. Please enter a valid number.")
-
-    # Convert day number to day name
-    if day == 0:
-        day = 'all'
-    else:
-        days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-        day = days[day - 1]
+        day = input("Please enter the day to analyze\n"
+                    "\t(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) or 'all' for no filter: ").strip().lower()
+        if day in ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday', 'all']:
+            break
+        print("Invalid input. Please try again.")
 
     print('-' * 40)
     return city, month, day
