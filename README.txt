@@ -27,6 +27,12 @@ Using Python, it uncovers trends in bike usage, identifies popular stations, exa
 ### Text-Based Graphs
 - Visualize bike usage trends by month and day using text-based bar graphs.
 
+### Raw Data Display Feature
+5-Row Raw Data Output: Displays raw data in increments of 5 rows upon user request.
+After displaying 5 rows, the user is prompted to see more data. If the user inputs yes, the next 5 rows are displayed.
+If the user inputs no or there is no more data to display, the process stops.
+Users can view raw data after applying filters to the dataset, providing detailed insights when desired.
+
 ---
 
 ## How to Run the Project

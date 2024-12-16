@@ -255,6 +255,24 @@ def visualize_usage_by_month_and_day(df):
     text_based_graph(month_counts, "Bike Usage by Month", "Month Usage Graph")
     text_based_graph(day_counts, "Bike Usage by Day", "Day Usage Graph")
 
+def raw_data(df):
+    """
+    Displays 5 rows of raw data at a time upon user request.
+    
+    Args:
+        df (DataFrame): The filtered bikeshare data.
+    """
+    start_index = 0
+    while True:
+        # Display 5 rows of data
+        print(df.iloc[start_index:start_index + 5])
+        start_index += 5
+        
+        # Check if the user wants to continue
+        more_data = input("\nWould you like to see 5 more rows of raw data? Enter yes or no: ").strip().lower()
+        if more_data != 'yes' or start_index >= len(df):
+            print("\nNo more raw data to display.")
+            break
 
 def main():
     """Manages the program execution."""
@@ -268,6 +286,20 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
+        # Show raw data
+        while True:
+            raw_input = input("\nWould you like to see raw data? Enter yes or no: ").strip().lower()
+            if raw_input == 'yes':
+                raw_data(df)
+                break
+            elif raw_input == 'no':
+                break
+            else:
+                print("Invalid input. Please enter 'yes' or 'no'.")
+
+        restart = input('\nWould you like to restart? Enter yes or no: ').strip().lower()
+        if restart != 'yes':
+            break
 
         restart = input('\nWould you like to restart? Enter yes or no: ').strip().lower()
         if restart != 'yes':
